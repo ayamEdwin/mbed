@@ -47,9 +47,9 @@
            C:\Users\<YourUsername>\Documents\SEGGER Embedded Studio Projects\
             Or wherever you manually chose when creating the project.
      
-            Check:
+     Check:
             '''bash
-            %USERPROFILE%\Documents\SEGGER Embedded Studio Projects\
+                 %USERPROFILE%\Documents\SEGGER Embedded Studio Projects\
             '''
      
       🍎 macOS : location:
