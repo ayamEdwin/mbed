@@ -24,32 +24,73 @@
   the corresponding datasheet.
 
   ## Prerequisites
-  Before using this API, ensure you have the following installed and succesfully configured:
+  If you are taking a course in Embedded Systems at Koforidua Technical University under the Electrical/Electronics
+  department, you will most likely be using the following tools:
+  
   ### Software Requirements
   - [Embedded Studio](https://www.segger.com/downloads/embedded-studio/) from Segger(Recommended IDE).
   - [J-Link Software](https://www.segger.com/downloads/jlink/) (For ST-Link debugger support).
   - Git (Optional: For this repository)
  
   ### Hardware Requirements
-   If you are taking a course in Embedded Systems at Koforidua Technical University under the Electrical/Electronics
-   department, you will most likely be using the following tools:
-  
   - STM32FO30RTC6 microcontroller development board.
   - ST-Link/V2 debugger (or compatible J-Link debugger)
   - USB cables for power and debugging.
  
+    NB: To use this API, ensure you have the above requirements satisfied installed and succesfully configured.
+ 
 
-  ## Installation (Method 1)
-  1. In your git bash terminal, navigate to: 
-  2. Clone this repository to your local machine:
+  ## Installation (Method 1 - Mac/Linux/windows)
+  1. In your git bash terminal, navigate to:
+      2. Typical Locations by OS
+🪟 Windows
+Common save locations include:
+
+C:\Users\<YourUsername>\Documents\SEGGER Embedded Studio Projects\
+
+Or wherever you manually chose when creating the project.
+
+Check:
+
+bash
+Copy
+Edit
+%USERPROFILE%\Documents\SEGGER Embedded Studio Projects\
+🍎 macOS
+Typical location:
+
+/Users/<YourUsername>/SEGGER Embedded Studio Projects/
+
+Or any custom path you chose
+
+Try searching:
+
+bash
+Copy
+Edit
+~/SEGGER Embedded Studio Projects/
+🐧 Linux
+Typical location:
+
+/home/<YourUsername>/SEGGER Embedded Studio Projects/
+
+SES may use the last-used directory, or wherever you chose
+
+Check with:
+
+bash
+Copy
+Edit
+~/SEGGER Embedded Studio Projects/
+
+  3. Clone this repository to your local machine:
      ```bash
      git clone https://github.com/ayamEdwin/mechasys.git
      ```
-  3. Open the project in Sergger Embedded Studio:
+  4. Open the project in Sergger Embedded Studio:
      - Launch Sergger Embedded Studio
      - Select "File" -> "Open Solution"
-     - Navigate to the cloned repository and
-       select the .emProject file.
+     - to be continued...
 
   ## Configuration
   ### J-Link Setup for ST-Link Debugger
