@@ -110,9 +110,9 @@
     
         while(1){
               ON_BOARD_LED.write(0); // Turns on board LED off
-              ThisThread::sleep_for(100000); // delays for unknown number of seconds
+              ThisThread::sleep_for(1000); // delays for 1000 ms
               ON_BOARD_LED.write(1); // Turns on board LED on
-              ThisThread::sleep_for(100000); // delays for unknown number of seconds
+              ThisThread::sleep_for(1000); //  delays for 1000 ms
           }
       }
 ``'
