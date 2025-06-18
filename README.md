@@ -42,46 +42,34 @@
 
   ## Installation (Method 1 - Mac/Linux/windows)
   1. In your git bash terminal, navigate to:
-      2. Typical Locations by OS
-🪟 Windows
-Common save locations include:
+      Typical Locations by OS
+      🪟 Windows : Common save locations include:
+           C:\Users\<YourUsername>\Documents\SEGGER Embedded Studio Projects\
+            Or wherever you manually chose when creating the project.
+     
+            Check:
+            '''bash
+            %USERPROFILE%\Documents\SEGGER Embedded Studio Projects\
+            '''
+     
+      🍎 macOS : location:
+            /Users/<YourUsername>/SEGGER Embedded Studio Projects/
+            Or any custom path you chose
 
-C:\Users\<YourUsername>\Documents\SEGGER Embedded Studio Projects\
+          Check
+         '''bash
+          ~/SEGGER Embedded Studio Projects/
+         '''
 
-Or wherever you manually chose when creating the project.
+      🐧 Linux : location:
+           /home/<YourUsername>/SEGGER Embedded Studio Projects/
+           SES may use the last-used directory, or wherever you chose
 
-Check:
-
-bash
-Copy
-Edit
-%USERPROFILE%\Documents\SEGGER Embedded Studio Projects\
-🍎 macOS
-Typical location:
-
-/Users/<YourUsername>/SEGGER Embedded Studio Projects/
-
-Or any custom path you chose
-
-Try searching:
-
-bash
-Copy
-Edit
-~/SEGGER Embedded Studio Projects/
-🐧 Linux
-Typical location:
-
-/home/<YourUsername>/SEGGER Embedded Studio Projects/
-
-SES may use the last-used directory, or wherever you chose
-
-Check with:
-
-bash
-Copy
-Edit
-~/SEGGER Embedded Studio Projects/
+          Check:
+         '''bash
+          ~/SEGGER Embedded Studio Projects/
+          '''
+     
 
   3. Clone this repository to your local machine:
      ```bash
@@ -105,18 +93,11 @@ Edit
       - Speed: 1000 kHz (adjust if needed)
       
   ### Embedded Studio Settings
-  1. Project Configuration:
-     - Set the target device to STM32F030RTC6
-     - Will be updated (Video will soon be out)
-  2. Build Configuration:
-     - Ensure optimization level is set appropriately for your needs
-     - Verify include paths are correctly set for all headers
-     - Video will soon be out for further help
-    
+     Blank for now
   ## API-Usage-Examples
   ```cpp
-      // This example code illustrate the use of DigitalOut to blink an on board LED
-      // connected to pin "PD2".
+      // This example code illustrates the use of DigitalOut to blink an on board LED
+      // connected to pin "PTD2".
     
       #include "mechatron.h"
   
@@ -130,26 +111,15 @@ Edit
               ON_BOARD_LED.write(0); // Turns on board LED off
               ThisThread::sleep_for(100000); // delays for unknown number of seconds
               ON_BOARD_LED.write(1); // Turns on board LED on
-              hisThread::sleep_for(100000); // delays for unknown number of seconds
+              ThisThread::sleep_for(100000); // delays for unknown number of seconds
           }
       }
-  ```
-
-  ## Collaboration
-  I welcome contributions to this project. If you would like
-  to collaborate:
-  1. Fork the repository
-  2. Create a new branch for your feature or bugfix
-  3. Submit  a pull request
+  ``'
  
-  For more substantial contributions or questions, please contact me
-  via email [Contact me via email](https://www.setsoafiaedwin7@gmail.com).
 
-  Please include detailed information about your proposed changes
-  or questions.
 
 ## License
-[MIT LICENSE](https://github.com/ayamEdwin/mechasys/blob/main/LICENSE)
+[MIT LICENSE](https://github.com/ayamEdwin/mbed/blob/main/LICENSE)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/mit/)
  
   
