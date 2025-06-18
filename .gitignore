@@ -1,0 +1,48 @@
+OA# SEGGER Embedded Studio generated files
+*.obj
+*.o
+*.d
+*.elf
+*.bin
+*.hex
+*.out
+*.map
+*.lst
+*.log
+
+# Build output directories
+/output/*
+/Output/*
+/build/*
+/Build/*
+/Debug/*
+/Release/*
+/.cproject
+Mbed
+SEGGER_THUMB_Startup.s
+Mbed.emProject
+STM32F030RCTx_MemoryMap.xml
+STM32F0xx_Flash.icf
+Mbed.emSession
+STM32F0x0_Registers.xml
+
+# User-specific settings
+*.user
+*.bak
+*.tmp
+*.swp
+*.swo
+*.dep
+
+
+# SEGGER project backup files
+*.emProject.bak
+*.emSolution.bak
+
+# Other temporary files
+*.DS_Store
+Thumbs.db
+
+# Ignore system-specific hidden files
+ehthumbs.db
+desktop.ini
