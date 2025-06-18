@@ -119,8 +119,9 @@
  
 
 ## License
-[MIT LICENSE](https://github.com/ayamEdwin/mbed/blob/main/LICENSE)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/mit/)
+[MIT LICENSE](https://github.com/ayamEdwin/mbed/blob/main/LICENSE)
+
  
   
         
