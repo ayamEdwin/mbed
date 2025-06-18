@@ -47,33 +47,27 @@
            C:\Users\<YourUsername>\Documents\SEGGER Embedded Studio Projects\
             Or wherever you manually chose when creating the project.
      
-     Check:
-            '''bash
-                 %USERPROFILE%\Documents\SEGGER Embedded Studio Projects\
-            '''
+            Check:
+            %USERPROFILE%\Documents\SEGGER Embedded Studio Projects\
      
       🍎 macOS : location:
             /Users/<YourUsername>/SEGGER Embedded Studio Projects/
             Or any custom path you chose
 
           Check
-         '''bash
           ~/SEGGER Embedded Studio Projects/
-         '''
 
       🐧 Linux : location:
            /home/<YourUsername>/SEGGER Embedded Studio Projects/
            SES may use the last-used directory, or wherever you chose
 
-          Check:
-         '''bash
-          ~/SEGGER Embedded Studio Projects/
-          '''
+            Check:
+           ~/SEGGER Embedded Studio Projects/
      
 
   3. Clone this repository to your local machine:
      ```bash
-     git clone https://github.com/ayamEdwin/mechasys.git
+     git clone https://github.com/ayamEdwin/mbed.git
      ```
   4. Open the project in Sergger Embedded Studio:
      - Launch Sergger Embedded Studio
@@ -99,13 +93,13 @@
       // This example code illustrates the use of DigitalOut to blink an on board LED
       // connected to pin "PTD2".
     
-      #include "mechatron.h"
-  
+      #include "DigitalOut.h"
+
+      DigitalOut ON_BOARD_LED(PD2); // Creates a DigitalOut object on PD2
   
       int main(){
         //set up code
         SystemClock_Config(); // configures system clock
-        DigitalOut ON_BOARD_LED(PD2); // Creates a DigitalOut object on PD2
     
         while(1){
               ON_BOARD_LED.write(0); // Turns on board LED off
@@ -114,9 +108,8 @@
               ThisThread::sleep_for(100000); // delays for unknown number of seconds
           }
       }
-  ``'
+``'
  
-
 
 ## License
 [MIT LICENSE](https://github.com/ayamEdwin/mbed/blob/main/LICENSE)
