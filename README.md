@@ -74,6 +74,13 @@
      - Select "File" -> "Open Solution"
      - to be continued...
 
+  ## Installation (Method 2 - Mac/Linux/windows)
+  1. On this repository navigate to Code and click on the dropdown.
+  2. Locate Download Zip and click on it.
+  3. Unzip the download mbed repo and copy paste to any appropriate
+     directory listed in Method 1.
+  
+
   ## Configuration  
   ### J-Link Setup for ST-Link Debugger  
   1. Install the latest [J-Link Software](https://www.segger.com/downloads/jlink/)
