@@ -41,41 +41,41 @@
  
 
   ## Installation (Method 1 - Mac/Linux/windows)
-  1. In your git bash terminal, navigate to:
-      Typical Locations by OS
-      🪟 Windows : Common save locations include:
-           C:\Users\<YourUsername>\Documents\SEGGER Embedded Studio Projects\
-            Or wherever you manually chose when creating the project.
+  1. In your git bash terminal, navigate to:  
+      Typical Locations by OS  
+      🪟 Windows : Common save locations include:  
+           C:\Users\<YourUsername>\Documents\SEGGER Embedded Studio Projects\  
+            Or wherever you manually chose when creating the project.  
      
             Check:
             %USERPROFILE%\Documents\SEGGER Embedded Studio Projects\
      
-      🍎 macOS : location:
-            /Users/<YourUsername>/SEGGER Embedded Studio Projects/
-            Or any custom path you chose
+      🍎 macOS : location:  
+            /Users/<YourUsername>/SEGGER Embedded Studio Projects/  
+            Or any custom path you chose  
 
           Check
           ~/SEGGER Embedded Studio Projects/
 
-      🐧 Linux : location:
-           /home/<YourUsername>/SEGGER Embedded Studio Projects/
-           SES may use the last-used directory, or wherever you chose
+      🐧 Linux : location:  
+           /home/<YourUsername>/SEGGER Embedded Studio Projects/  
+           SES may use the last-used directory, or wherever you chose  
 
             Check:
            ~/SEGGER Embedded Studio Projects/
      
 
-  3. Clone this repository to your local machine:
+  3. Clone this repository to your local machine:  
      ```bash
      git clone https://github.com/ayamEdwin/mbed.git
      ```
-  4. Open the project in Sergger Embedded Studio:
+  4. Open the project in Sergger Embedded Studio:  
      - Launch Sergger Embedded Studio
      - Select "File" -> "Open Solution"
      - to be continued...
 
-  ## Configuration
-  ### J-Link Setup for ST-Link Debugger
+  ## Configuration  
+  ### J-Link Setup for ST-Link Debugger  
   1. Install the latest [J-Link Software](https://www.segger.com/downloads/jlink/)
   2. Connect your ST-Link debugger to both your computer and the target board
   3. In Segger Embedded Studio:
