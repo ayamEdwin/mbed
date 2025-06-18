@@ -18,6 +18,8 @@ OA# SEGGER Embedded Studio generated files
 /Debug/*
 /Release/*
 /.cproject
+STM32F0xx
+CMSIS_5
 Mbed
 SEGGER_THUMB_Startup.s
 Mbed.emProject
