@@ -3,13 +3,13 @@
  
  class DigitalOut{
                   public:
-                          /* @brief constructor to initialize gpio output pins */
+                          // @brief constructor to initialize gpio output pins
                           DigitalOut(PinName pin);
 
-                          /* @brief writes to specified pin */
+                          // @brief writes to specified pin 
                           void write(int value);
     
-                          /* @brief return state of output pin*/
+                          // @brief return state of output pin
                           int read();
 
                    private:
