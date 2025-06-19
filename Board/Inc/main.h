@@ -14,6 +14,7 @@ Collaborators    : Mr. Richard Mensah, Edwin Setsoafia, Enos Essandoh,
               
 Comment Style: @brief describes in brief the funtionality
                @param description of parameters
+               @important needs to be critically examined
                // For comments that are not lengthy
 
 NB: This is a standard for code clarity and better documentation
@@ -27,6 +28,9 @@ Adhere to it!
 #define MAIN_H
 
 // Preprocessor Definitions
+
+
+#include "stm32f030xc.h"
 
 
 // @brief all c included libraries go here 
@@ -52,6 +56,7 @@ extern "C" {
   #include "stm32f0xx_ll_dma.h"
   #include "stm32f0xx_ll_tim.h"
   #include "stm32f0xx_ll_gpio.h"
+  
 
   #ifdef __cplusplus
 }
@@ -79,7 +84,50 @@ typedef enum{
   PTF6 = 86,
   PTF7 = 87
 
-} PinName;
+} pin_name;
+
+
+ struct PinName {
+    GPIO_TypeDef* port;
+    uint8_t pin;
+    
+    /*  @brief this constructor extracts and stores port
+     *  and pin number from pin_name at compile time
+     */
+    constexpr PinName(pin_name gpioPin)
+        : port(getPort((gpioPin >> 4) & 0xF)),
+          pin(gpioPin & 0xF) {}
+
+    /* @brief returns appropriate port from portNum where
+     * A = 0, B = 1, C = 2, D = 3, E = nullptr, F = 5
+     * @param portNum extracted port number
+     */
+    static GPIO_TypeDef* getPort(uint8_t portNum) {
+        switch (portNum) {
+            case 0: return GPIOA;
+            case 1: return GPIOB;
+            case 2: return GPIOC;
+            case 3: return GPIOD;
+            //case 4: returns default
+            case 5: return GPIOF;
+            default: return nullptr;
+        }
+    }
+
+    bool operator==(const PinName& other) const {
+        return (port == other.port) && (pin == other.pin);
+    }
+};
+
+
+// @brief defines speed mode of gpio pins
+ enum GPIOSpeed {
+SPEED_LOW = 0b00,
+SPEED_MEDIUM = 0b01,  
+SPEED_HIGH = 0b11   
+
+};
+
 
 /*
 // mode for input pins

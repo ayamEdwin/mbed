@@ -19,5 +19,5 @@
                           int read();
 
                           // returns the mode settings
-                          void mode(PinMode pull);
+                          //void mode(PinMode pull);
     };
