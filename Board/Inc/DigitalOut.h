@@ -1,33 +1,37 @@
 #ifndef DIGITALOUT_H
 #define DIGITALOUT_H
-#include "main.h"
 
+ #include "main.h"
+ 
+ class DigitalOut
+ {
+    public:
+      /* @brief constructor to initialize gpio output pins */
+      DigitalOut(pin_name pin);
 
+      /* @brief writes to specified pin */
+      void write(bool value);
 
-  class DigitalOut {
+   /* @brief sets the speed of pin*/
+      void setSpeed(GPIOSpeed speed);
 
-   public:
-       // @brief constructor to initialize gpio output pins
-       DigitalOut(PinName pin);
+      /* @brief return state of output pin*/
+      bool read();
 
-      // @brief writes to specified pin
-       void write(int value);
+      /* @brief sets the mode of pin*/
+      void mode(OutputConfig OType);
 
-      // @brief return state of output pin
-       bool read()const;
+       /* @brief short hand of write */
+      void operator=(bool);
 
-       void operator=(int value);
+       /* @brief short hand of read */
+      operator bool();
 
-       operator int() const;
-       void setSpeed(GPIOSpeed speed);
+    private:
+      uint8_t portNum;
+      uint8_t pinNum;
 
-       private:
-           GPIO_TypeDef *gpioPort;
-           uint8_t gpioPin;
-
-           void enableClock();
-
-}; // DigitalOut
+  }; // DigitalOut
 
 
 #endif 

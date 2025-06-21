@@ -10,7 +10,7 @@ Language  : C/C++
 Tools    : Embedded studio
 Target Device : STM32F030RCT6
 Collaborators    : Mr. Richard Mensah, Edwin Setsoafia, Enos Essandoh,
-                    Amidu Lukeman, Lawson Chinedu, Paul
+                    Amidu Lukman, Lawson Chinedu, Paul
               
 Comment Style: @brief describes in brief the funtionality
                @param description of parameters
@@ -62,6 +62,22 @@ extern "C" {
 }
 #endif
 
+//prototypes
+void wait(float);
+void wait_ms(uint16_t);
+void wait_us(uint32_t);
+void portClkEn(uint8_t);
+void timerClkEn(uint8_t);
+
+//Array of GPIO pointers
+extern GPIO_TypeDef* GpioArray[];
+//Array of SPI pointers
+extern SPI_TypeDef* SpiArray[];
+//Array of SPI pointers
+extern TIM_TypeDef* TimArray[];
+
+
+
 typedef enum{
   // PORT A
   PTA0, PTA1, PTA2, PTA3, PTA4, PTA5, PTA6, PTA7, PTA8,
@@ -86,57 +102,52 @@ typedef enum{
 
 } pin_name;
 
+//the onboard led
+#define  LED   PTD2
+#define  GPIOPORT   GpioArray[portNum]
+#define  TIMER      TimArray[tim]
+#define  SPIPORT      SpiArray[portNum]
 
- struct PinName {
-    GPIO_TypeDef* port;
-    uint8_t pin;
-    
-    /*  @brief this constructor extracts and stores port
-     *  and pin number from pin_name at compile time
-     */
-    constexpr PinName(pin_name gpioPin)
-        : port(getPort((gpioPin >> 4) & 0xF)),
-          pin(gpioPin & 0xF) {}
+typedef enum 
+{
+        tim1,tim3,tim6,tim7,
+        tim14,tim15,tim16,tim17
+} Timers;
 
-    /* @brief returns appropriate port from portNum where
-     * A = 0, B = 1, C = 2, D = 3, E = nullptr, F = 5
-     * @param portNum extracted port number
-     */
-    static GPIO_TypeDef* getPort(uint8_t portNum) {
-        switch (portNum) {
-            case 0: return GPIOA;
-            case 1: return GPIOB;
-            case 2: return GPIOC;
-            case 3: return GPIOD;
-            //case 4: returns default
-            case 5: return GPIOF;
-            default: return nullptr;
-        }
-    }
+typedef enum { 
+        //channels for various timers
+        channel1,channel2,channel3,channel4
+}Channels;
 
-    bool operator==(const PinName& other) const {
-        return (port == other.port) && (pin == other.pin);
-    }
-};
+
+typedef enum{
+        PORTA,PORTB,PORTC,PORTD,PORTF
+}PortName;
+ 
 
 
 // @brief defines speed mode of gpio pins
  enum GPIOSpeed {
-SPEED_LOW = 0b00,
-SPEED_MEDIUM = 0b01,  
-SPEED_HIGH = 0b11   
-
+      SPEED_LOW = 0b00,
+      SPEED_MEDIUM = 0b01,  
+      SPEED_HIGH = 0b11   
 };
 
 
-/*
+
 // mode for input pins
 typedef enum{
         PullNone, // No pull-up or pull-down (external resistor)
         PullUp, // pull-up
         PullDown, // pull-down
         //OpenDrain;
-} PinMode;
-*/
+} InputConfig;
+
+typedef enum 
+{
+  PushPull,OpenDrain
+}OutputConfig;
+
+
 
 #endif // MAIN_H
