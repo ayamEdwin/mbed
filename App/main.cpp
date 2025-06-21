@@ -14,13 +14,13 @@
      
       PTA13 (SWDIO)
       PTA14 (SWCLK)
-      PAT15 Not working
+  
 
       PTC0 to PTC15 has been reversed on the Dev Board
       PTF6 and PTF7 not tested
     */
 
-    DigitalOut led_pin_test(PTA0); 
+    DigitalOut led_pin_test(PTA15); 
 
 
     int main(){ 
