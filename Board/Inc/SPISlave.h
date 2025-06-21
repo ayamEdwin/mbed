@@ -7,7 +7,6 @@ class SPISlave:public SPI
 {
   protected:
     uint8_t SSPinNum;
-    uint8_t SSPortNum;
   public:
     SPISlave(pin_name,pin_name,pin_name,pin_name);
     void reply(uint8_t);
