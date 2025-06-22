@@ -98,7 +98,7 @@
      Blank for now
   ## Pin Out
   <p align="left">
-        <img src="[STM32 DEV BOARD PINOUT](https://github.com/ayamEdwin/mbed/assets/mbed_pinout.png)" alt="mbed_piout"/>
+        <img src="![STM32 DEV BOARD PINOUT](https://github.com/ayamEdwin/mbed/assets/mbed_pinout.png)" "mbed_piout"/>
   </p>
   ## API-Usage-Examples
 
