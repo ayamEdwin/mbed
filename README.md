@@ -96,7 +96,7 @@
   ### Embedded Studio Settings
      Blank for now
   ## API-Usage-Examples
-  ```cpp
+      cpp
       // This example code illustrates the use of DigitalOut to blink an on board LED
       // connected to pin "PTD2".
     
@@ -105,17 +105,14 @@
       DigitalOut ON_BOARD_LED(PD2); // Creates a DigitalOut object on PD2
   
       int main(){
-        //set up code
-        SystemClock_Config(); // configures system clock
     
         while(1){
               ON_BOARD_LED.write(0); // Turns on board LED off
-              ThisThread::sleep_for(1000); // delays for 1000 ms
+              wait_ms(1000); // delays for 1000 ms
               ON_BOARD_LED.write(1); // Turns on board LED on
-              ThisThread::sleep_for(1000); //  delays for 1000 ms
+              wait_ms(1000); //  delays for 1000 ms
           }
-      }
-``'
+      } 
  
 
 ## License
