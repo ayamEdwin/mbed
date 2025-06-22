@@ -98,7 +98,7 @@
      Blank for now
   ## API-Usage-Examples
 
-  '''   cpp
+  ```   cpp
   
       // This example code illustrates the use of DigitalOut to blink an on board LED
   
@@ -117,7 +117,7 @@
                   wait_ms(1000); //  delays for 1000 ms
               }
           }
-  '''
+  ```
  
 
 ## License
