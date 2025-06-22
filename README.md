@@ -106,7 +106,7 @@
   
       #include "DigitalOut.h"
 
-      DigitalOut ON_BOARD_LED(PD2); // Creates a DigitalOut object on PD2
+      DigitalOut ON_BOARD_LED(PTD2); // Creates a DigitalOut object on PD2
       
       int main(){
         
