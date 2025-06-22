@@ -96,6 +96,10 @@
       
   ### Embedded Studio Settings
      Blank for now
+  ## Pin Out
+  <p align="left">
+        <img src="[STM32 DEV BOARD PINOUT](assets/mbed_pinout.png)" alt="mbed_piout"/>
+  </p>
   ## API-Usage-Examples
 
   ```   cpp
