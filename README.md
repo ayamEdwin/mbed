@@ -98,7 +98,7 @@
      Blank for now
   ## Pin Out
   
-  ![STM32 DEV BOARD PINOUT](https://github.com/ayamEdwin/mbed/assets/mbed_pinout.png?raw=true)
+  ![STM32 DEV BOARD PINOUT](https://github.com/ayamEdwin/mbed/blob/main/assets/mbed_pinout.png?raw=true)
   
   ## API-Usage-Examples
 
