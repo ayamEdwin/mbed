@@ -1,42 +1,40 @@
-#include "main.h"
 #include "DigitalOut.h"
 
+/* @brief Constructor implementation for DigitalOut */
+ DigitalOut::DigitalOut(pin_name pin) 
+{
+  /* @brief extracts port and pin number from PinName */
+  portNum = (pin >> 4) & 0xF;  // Extracts port number
+  pinNum = (pin & 0xF);        // Extracts pin number
 
-/*  @brief constructor implementation for DigitalOut
- *  @param PinName name of gpio pin
- */
-DigitalOut::DigitalOut(PinName pin)
-       :gpioPort(pin.port), gpioPin(pin.pin){
-       
-       // enables gpio clock
-       enableClock();
-       gpioPort->MODER &= ~(0b11 << (2 * gpioPin));
-       gpioPort->MODER |= (0b01 << (2 * gpioPin));
+  portClkEn(portNum);
+  //Set mode to output
+  GPIOPORT->MODER  &= ~(3ul << (pinNum* 2));
+  GPIOPORT->MODER |= (1ul << (pinNum* 2));
 
-       write(0);
-       
+  // use mode to default
+  this->mode(PushPull);
 }
 
-
-// @brief enables gpio clock for appropriate pin
-void DigitalOut::enableClock(){
-       
-       if (gpioPort == GPIOA) RCC->AHBENR |= RCC_AHBENR_GPIOAEN;
-       else if (gpioPort == GPIOB) RCC->AHBENR |= RCC_AHBENR_GPIOBEN;
-       else if (gpioPort == GPIOC) RCC->AHBENR |= RCC_AHBENR_GPIOCEN;
-       else if (gpioPort == GPIOD) RCC->AHBENR |= RCC_AHBENR_GPIODEN;
-       else if (gpioPort == GPIOF) RCC->AHBENR |= RCC_AHBENR_GPIOFEN;
-}
 
 
 /* @brief writes to specified pin 
  * @param value value to write to pin
  */ 
-void DigitalOut::write(int value){
-      if (value)
-        gpioPort->BSRR = (1 << gpioPin);
-      else 
-         gpioPort->BSRR = (1 << (gpioPin + 16));
+void DigitalOut::write(bool state) 
+{
+  //Write to pin
+  if(!state) GPIOPORT->ODR &= ~(1ul << pinNum);
+  else GPIOPORT->ODR |= (1ul << pinNum);
+}
+
+/* @brief sets the mode of the specified pin 
+ * @param mode of pin
+ */ 
+void DigitalOut::mode(OutputConfig OType) 
+{
+  if(OType == OpenDrain) GPIOPORT->OTYPER |= (1ul << pinNum);
+  else GPIOPORT->OTYPER &= ~(1ul << pinNum);  // Push Pull
 }
 
 
@@ -44,26 +42,28 @@ void DigitalOut::write(int value){
  *  a boolean representing the output setting of the pin,
  *    0 for logical 0, 1 for logical 1
  */
-bool DigitalOut::read()const{
-      return((gpioPort->ODR>>gpioPin) & 1ul)? 1 : 0;
-
+bool DigitalOut::read() 
+{
+  return ((GPIOPORT->ODR >>pinNum) & 1ul);
 }
-
 
 /* @brief A shorthand for write() using the assignment
  * operator which copies the state from the DigitalOut argument.
  * \sa DigitalOut::write()
  */
-void DigitalOut::operator=(int value){
-      write(value);
+void DigitalOut::operator=(bool state) 
+{
+  write(state);
 }
 
 /* @brief A shorthand for read() using the assignment
  * operator which copies the state from the DigitalOut argument.
  * \sa DigitalOut::write()
  */
-DigitalOut::operator int() const{
-      return read();
+
+ DigitalOut::operator bool()
+{
+  return read();
 }
 
 
@@ -72,6 +72,10 @@ DigitalOut::operator int() const{
  * (low, medium, high)
  */
 void DigitalOut::setSpeed(GPIOSpeed speed){
-    gpioPort->OSPEEDR &= ~(0b11 << (2 *gpioPin));
-    gpioPort->OSPEEDR |= ~(speed << (2 *gpioPin));
+    GPIOPORT->OSPEEDR &= ~(0b11 << (2 * pinNum));
+    GPIOPORT->OSPEEDR |= ~(speed << (2 * pinNum));
 }
+
+
+
+
