@@ -99,23 +99,23 @@
   ## API-Usage-Examples
 
   ''' cpp
-  // This example code illustrates the use of DigitalOut to blink an on board LED
-  // connected to pin "PTD2".
+      // This example code illustrates the use of DigitalOut to blink an on board LED
+      // connected to pin "PTD2".
     
-  #include "DigitalOut.h"
+      #include "DigitalOut.h"
 
-  DigitalOut ON_BOARD_LED(PD2); // Creates a DigitalOut object on PD2
-  
-  int main(){
-    
-  while(1){
-              ON_BOARD_LED.write(0); // Turns on board LED off
-              wait_ms(1000); // delays for 1000 ms
-              ON_BOARD_LED.write(1); // Turns on board LED on
-              wait_ms(1000); //  delays for 1000 ms
+      DigitalOut ON_BOARD_LED(PD2); // Creates a DigitalOut object on PD2
+      
+      int main(){
+        
+      while(1){
+                  ON_BOARD_LED.write(0); // Turns on board LED off
+                  wait_ms(1000); // delays for 1000 ms
+                  ON_BOARD_LED.write(1); // Turns on board LED on
+                  wait_ms(1000); //  delays for 1000 ms
+              }
           }
-      }
-  '''
+  
  
 
 ## License
