@@ -98,10 +98,12 @@
      Blank for now
   ## API-Usage-Examples
 
-  ''' cpp
+  '''   cpp
+  
       // This example code illustrates the use of DigitalOut to blink an on board LED
-      // connected to pin "PTD2".
-    
+  
+      // connected to pin "PTD2"
+  
       #include "DigitalOut.h"
 
       DigitalOut ON_BOARD_LED(PD2); // Creates a DigitalOut object on PD2
