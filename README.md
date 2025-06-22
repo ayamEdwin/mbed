@@ -79,6 +79,7 @@
   2. Locate Download Zip and click on it.
   3. Unzip the download mbed repo and copy paste to any appropriate
      directory listed in Method 1.
+     or click here to download [mbed](https://github.com/ayamEdwin/mbed/archive/refs/heads/main.zip)
   
 
   ## Configuration  
