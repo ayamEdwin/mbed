@@ -76,6 +76,3 @@ void DigitalOut::setSpeed(GPIOSpeed speed){
     GPIOPORT->OSPEEDR |= ~(speed << (2 * pinNum));
 }
 
-
-
-

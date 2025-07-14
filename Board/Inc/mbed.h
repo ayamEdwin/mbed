@@ -9,6 +9,7 @@
 #include "AnalogIn.h"
 #include "SPI.h"
 #include "SPISlave.h"
+#include "InterruptIn.h"
 
 
 
