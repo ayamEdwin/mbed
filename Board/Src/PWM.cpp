@@ -1,4 +1,4 @@
-#include "pwm.h"
+#include "PWM.h"
 
 /*
 Pwm pins include
