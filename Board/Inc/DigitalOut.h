@@ -1,7 +1,8 @@
+#include "main.h"
+
 #ifndef DIGITALOUT_H
 #define DIGITALOUT_H
 
- #include "main.h"
  
  class DigitalOut
  {

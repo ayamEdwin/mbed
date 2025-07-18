@@ -6,6 +6,7 @@
   /* @brief extracts port and pin number from PinName */
   portNum = (pin >> 4) & 0xF;  // Extracts port number
   pinNum = (pin & 0xF);        // Extracts pin number
+  if (pin == PTA13 || pin == PTA14) return;
 
   portClkEn(portNum);
   //Set mode to output
@@ -75,4 +76,7 @@ void DigitalOut::setSpeed(GPIOSpeed speed){
     GPIOPORT->OSPEEDR &= ~(0b11 << (2 * pinNum));
     GPIOPORT->OSPEEDR |= ~(speed << (2 * pinNum));
 }
+
+
+
 

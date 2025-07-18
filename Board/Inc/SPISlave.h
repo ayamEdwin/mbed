@@ -1,7 +1,7 @@
+#include "SPI.h"
 #ifndef SPISLAVE_H
 #define SPISLAVE_H
 
-#include "SPI.h"
 
 class SPISlave:public SPI
 {

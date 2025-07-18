@@ -1,7 +1,7 @@
 #include "Timer.h"
 
 static uint8_t count;
-uint16_t update = 0;
+uint64_t update = 0;
 
 Timer::Timer()
 {
@@ -35,7 +35,7 @@ uint64_t Timer::read_us()
 {
   if(overflow > update)
   {
-      return ((UINT64_MAX - overflow + update)*65535+ TIM6->CNT);
+      return ((UINT64_MAX - overflow + update)*65535 + TIM6->CNT);
   }
   else
   {
@@ -71,6 +71,28 @@ Timer::~Timer()
   }
 }
 
+
+void Timer::wait_us(uint32_t microsec)
+{
+  this->start();
+  while(read_us() < microsec);
+  stop();
+}
+
+void Timer::wait(float sec) 
+{
+  start();
+  while(read_us() < sec*1000000);
+  stop();
+}
+
+
+void Timer::wait_ms(uint16_t milisec)
+{
+  start();
+  while(read_ms() < milisec);
+  stop();
+}
 
 
 #ifdef __cplusplus

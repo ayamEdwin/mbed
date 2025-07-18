@@ -1,4 +1,4 @@
-#include "PWM.h"
+#include "pwm.h"
 
 /*
 Pwm pins include
@@ -35,6 +35,8 @@ void PwmOut::period(float _period)
 
 void PwmOut::write(float duty_c)
 {
+  (duty_c < 0)?duty_c = 0:(duty_c > 1)? duty_c = 1:duty_c = duty_c;
+
   if(chn == channel1) 
     TIMER->CCR1 = (duty_c * 0xffff); //dut cycle
   else if(chn == channel2) 

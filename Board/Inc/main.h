@@ -28,14 +28,8 @@ Adhere to it!
 #define MAIN_H
 
 // Preprocessor Definitions
-// Error Codes (odd hundreds)
-#define I2C_PIN_ERROR 101 // can't be used for i2c
-
-//Success Codes (even hundreds)
-#define I2C_PIN_EXISTS 100 // can be used for i2c
 
 
-#include "stm32f030xc.h"
 
 
 // @brief all c included libraries go here 
@@ -43,10 +37,12 @@ Adhere to it!
 extern "C" {
   #endif
   // usages in main.cpp 
-  #include "System Configuration.h"
+  #include "System Configration.h"
   #include "stdio.h" // for printf
-  #include <cstring>
+  //#include <cstring>
+  #include <math.h>
   #include <stdint.h>
+#include "stm32f030xc.h"
   
 
   // c libraries for use in APIs 
@@ -67,23 +63,9 @@ extern "C" {
 }
 #endif
 
-
-// SYSCFG->EXTICR register indeces
-#define INDEX_0 0 // SYSCFG_EXTICR1
-#define INDEX_1 1 // SYSCFG_EXTICR2
-#define INDEX_2 2 // SYSCFG_EXTICR3
-#define INDEX_3 3 // SYSCFG_EXTICR4
-
 //prototypes
-void wait(float);
-void wait_ms(uint16_t);
-void wait_us(uint32_t);
 void portClkEn(uint8_t);
 void timerClkEn(uint8_t);
-void EXTIClkEn(void);
-void EXTIRouter(uint8_t port, uint8_t pin_num);
-void EXTIHandler(void);
-
 
 //Array of GPIO pointers
 extern GPIO_TypeDef* GpioArray[];
@@ -91,8 +73,6 @@ extern GPIO_TypeDef* GpioArray[];
 extern SPI_TypeDef* SpiArray[];
 //Array of SPI pointers
 extern TIM_TypeDef* TimArray[];
-//Array of EXTI pointers
-//extern EXTI_TypeDef* EXTIArray[];
 
 
 
@@ -120,13 +100,11 @@ typedef enum{
 
 } pin_name;
 
-
 //the onboard led
 #define  LED   PTD2
 #define  GPIOPORT   GpioArray[portNum]
 #define  TIMER      TimArray[tim]
 #define  SPIPORT      SpiArray[portNum]
-#define  EXTI_LINE       EXTIArray[portNum]
 
 typedef enum 
 {
@@ -143,6 +121,8 @@ typedef enum {
 typedef enum{
         PORTA,PORTB,PORTC,PORTD,PORTF
 }PortName;
+ 
+
 
 // @brief defines speed mode of gpio pins
  enum GPIOSpeed {

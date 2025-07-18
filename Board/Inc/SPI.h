@@ -1,7 +1,7 @@
+#include "main.h"
 #ifndef SPI_H
 #define SPI_H
 
-#include "main.h"
 
 class SPI
 {

@@ -1,7 +1,7 @@
+#include "main.h"
 #ifndef  ANALOGIN_H
 #define ANALOGIN_H
 
-#include "main.h"
 
 class AnalogIn
 {

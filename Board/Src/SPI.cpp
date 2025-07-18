@@ -17,7 +17,7 @@ SPI::SPI(uint8_t mosi, uint8_t miso, uint8_t clk)
   {
      // Enable clk for SPI2
       RCC->APB1ENR |= RCC_APB1ENR_SPI2EN;
-  }
+  }else return;
   //configure spi
   spiConfig();
   // use default format

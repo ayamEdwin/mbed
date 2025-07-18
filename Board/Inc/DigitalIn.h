@@ -1,7 +1,8 @@
+#include "main.h"
+
 #ifndef  DIGITALIN_H
 #define DIGITALIN_H
 
-#include "main.h"
   
   // Digital In class
 class DigitalIn 

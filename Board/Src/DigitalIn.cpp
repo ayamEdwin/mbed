@@ -7,6 +7,7 @@ DigitalIn::DigitalIn(pin_name pin)
 
   portNum = (pin >> 4) & 0xF;  // Extracts port number
   pinNum = (pin & 0xF);        // Extracts pin number
+  if (pin == PTA13 || pin == PTA14) return;
 
   //enable port clk
   portClkEn(portNum);
