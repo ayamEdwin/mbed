@@ -8,9 +8,6 @@
 typedef void (*callback) (void);
 
 
-
-
-
 class InterruptIn {
       public:
             /* @brief constructor for overall pin initialization
