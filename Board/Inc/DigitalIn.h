@@ -1,6 +1,6 @@
 #include "main.h"
 
-#ifndef  DIGITALIN_H
+#ifndef DIGITALIN_H
 #define DIGITALIN_H
 
   
